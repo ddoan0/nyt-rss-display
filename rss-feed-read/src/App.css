@@ -1,0 +1,30 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #888;
+}
+
+.App {
+  background-color: white;
+}
+
+.panel {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.text {
+  flex: 0 1 auto;
+}
