@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: #888;
 }
 
 .App {
@@ -11,7 +10,7 @@
 }
 
 .panel {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,4 +26,11 @@
 
 .text {
   flex: 0 1 auto;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem;
+  text-align: center;
 }

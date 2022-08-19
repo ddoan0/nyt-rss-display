@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "./Header";
 import "./App.css";
 
 function App() {
@@ -28,24 +29,27 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {data.map((item) => (
-        <div className="panel" key={item.id}>
-          <div className="textColumn">
-            <a className="text" href={item.link}>
-              <h2>{item.title}</h2>
-            </a>
-            <p className="text">{item.description}</p>
-            <p className="text">{item.pubDate}</p>
+    <div className="Wrapper">
+      <Header />
+      <div className="App">
+        {data.map((item) => (
+          <div className="panel" key={item.id}>
+            <div className="textColumn">
+              <a className="text" href={item.link}>
+                <h2>{item.title}</h2>
+              </a>
+              <p className="text">{item.description}</p>
+              <p className="text">{item.pubDate}</p>
+            </div>
+            <img
+              src={item.imageUrl}
+              alt={"alt"}
+              width={item.imageWidth}
+              height={item.imageHeight}
+            />
           </div>
-          <img
-            src={item.imageUrl}
-            alt={"alt"}
-            width={item.imageWidth}
-            height={item.imageHeight}
-          />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
