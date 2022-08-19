@@ -8,6 +8,8 @@ import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
 import org.jdom2.Element;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -27,11 +29,13 @@ public class RssReader {
         feedItems = new ArrayList<>();
     }
 
+    @Cacheable("feedItems")
     public List<RssFeedItem> getFeedItems() {
         return feedItems;
     }
 
     @Scheduled(fixedRate = 900000)
+    @CacheEvict(cacheNames = "feedItems", allEntries = true)
     void getFeed() throws IOException {
         if(feedItems.size() > 0) {
             feedItems.clear();
