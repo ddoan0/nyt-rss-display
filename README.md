@@ -1,6 +1,10 @@
 # RSS Reader
 This project has a java spring boot backend that reads RSS from nyt technology page and makes it an available resource the /rss endpoint. The react front end consumes from that endpoint and displays the items as a list.
 
+RSS for NYT Technology page:
+
+https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
+
 ### Software Requirements
 
 Java Development Kit 11+

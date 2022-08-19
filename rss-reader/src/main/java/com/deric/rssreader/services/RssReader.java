@@ -7,6 +7,7 @@ import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
 import org.jdom2.Element;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -17,14 +18,13 @@ import java.util.List;
 
 @Component
 public class RssReader {
-    private String url = "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml";
-    private List<RssFeedItem> feedItems;
 
-    private int id;
+    @Value("${rssUrl}")
+    private String url;
+    private final List<RssFeedItem> feedItems;
 
     public RssReader() {
         feedItems = new ArrayList<>();
-        id = 0;
     }
 
     public List<RssFeedItem> getFeedItems() {
@@ -34,15 +34,13 @@ public class RssReader {
     @Scheduled(fixedRate = 900000)
     void getFeed() throws IOException {
         if(feedItems.size() > 0) {
-            feedItems = new ArrayList<>();
-            id = 0;
+            feedItems.clear();
         }
 
         try (XmlReader reader = new XmlReader(new URL(url))) {
             SyndFeed feed = new SyndFeedInput().build(reader);
             for (SyndEntry entry : feed.getEntries()) {
                 RssFeedItem rssFeedItem = new RssFeedItem();
-                rssFeedItem.setId(id++);
                 rssFeedItem.setTitle(entry.getTitle());
                 rssFeedItem.setDescription(entry.getDescription().getValue());
                 rssFeedItem.setPubDate(entry.getPublishedDate());
