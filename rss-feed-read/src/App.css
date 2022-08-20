@@ -6,25 +6,30 @@
 }
 
 .App {
-  background-color: white;
   padding: 20px;
 }
 
 .panel {
+  background-color: white;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+  box-shadow: 5px;
 }
 
 .textColumn {
+  color: black;
   display: flex;
   flex-direction: column;
   margin-left: 0;
   margin-right: auto;
   max-width: 1000px;
-  /* border: 1px solid red; */
+  flex: 0 0 600px;
 }
 
 .text {
@@ -39,6 +44,7 @@
   text-align: center;
 }
 
-img {
-  flex-grow: 1;
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
 }

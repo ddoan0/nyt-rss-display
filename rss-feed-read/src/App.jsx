@@ -22,6 +22,7 @@ function App() {
               imageUrl: item.url,
               imageHeight: item.imageHeight,
               imageWidth: item.imageWidth,
+              authors: item.authors,
             },
           ]);
         })
@@ -35,11 +36,12 @@ function App() {
         {data.map((item) => (
           <div className="panel" key={item.id}>
             <div className="textColumn">
+              <p className="text">{item.pubDate}</p>
               <a className="text" href={item.link}>
                 <h2>{item.title}</h2>
               </a>
               <p className="text">{item.description}</p>
-              <p className="text">{item.pubDate}</p>
+              <p className="text">By {item.authors}</p>
             </div>
             <img
               src={item.imageUrl}

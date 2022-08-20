@@ -10,17 +10,18 @@ public class RssFeedItem {
     private int id;
     private String title;
     private String link;
-    private Date pubDate;
+    private String pubDate;
     private String description;
     private String imageUrl;
     private int imageHeight;
     private int imageWidth;
+    private String authors;
 
     public RssFeedItem() {
         id = uniqueId.getAndIncrement();
     }
 
-    public RssFeedItem(String title, String link, Date pubDate, String description, String imageUrl, int imageHeight, int imageWidth) {
+    public RssFeedItem(String title, String link, String pubDate, String description, String imageUrl, int imageHeight, int imageWidth, String authors) {
         this.title = title;
         this.link = link;
         this.pubDate = pubDate;
@@ -28,6 +29,7 @@ public class RssFeedItem {
         this.imageUrl = imageUrl;
         this.imageHeight = imageHeight;
         this.imageWidth = imageWidth;
+        this.authors = authors;
 
         id = uniqueId.getAndIncrement();
     }
@@ -56,11 +58,11 @@ public class RssFeedItem {
         this.link = link;
     }
 
-    public Date getPubDate() {
+    public String getPubDate() {
         return pubDate;
     }
 
-    public void setPubDate(Date pubDate) {
+    public void setPubDate(String pubDate) {
         this.pubDate = pubDate;
     }
 
@@ -94,6 +96,14 @@ public class RssFeedItem {
 
     public void setImageWidth(int imageWidth) {
         this.imageWidth = imageWidth;
+    }
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
     }
 
     @Override

@@ -47,8 +47,9 @@ public class RssReader {
                 RssFeedItem rssFeedItem = new RssFeedItem();
                 rssFeedItem.setTitle(entry.getTitle());
                 rssFeedItem.setDescription(entry.getDescription().getValue());
-                rssFeedItem.setPubDate(entry.getPublishedDate());
+                rssFeedItem.setPubDate(entry.getPublishedDate().toLocaleString().substring(0, 12));
                 rssFeedItem.setLink(entry.getLink());
+                rssFeedItem.setAuthors(entry.getAuthor());
                 for (Element e : entry.getForeignMarkup()) {
                     if(e.getAttribute("height") == null) continue;
                     rssFeedItem.setImageHeight(Integer.parseInt(e.getAttribute("height").getValue()));
