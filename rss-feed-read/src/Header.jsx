@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Header.css";
 import LanguageButtons from "./LanguageButtons";
 
 function Header() {
   const [englishSelected, setEnglishSelected] = useState(true);
+  const [today, setDate] = useState(new Date());
 
   function languageToggle() {
     setEnglishSelected(!englishSelected);
@@ -12,8 +13,21 @@ function Header() {
   return (
     <div className="header">
       <ul className="headerList">
-        <li>Mon, 15 Aug 2022</li>
-        <li>The New York Times</li>
+        <li className="date">
+          {today.toLocaleDateString("en", { weekday: "short" }) +
+            ", " +
+            today.toLocaleDateString("en", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+            })}
+        </li>
+        <li>
+          <img
+            src="https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png"
+            alt="NYT Logo"
+          />
+        </li>
         <li>
           <LanguageButtons
             languageToggle={languageToggle}

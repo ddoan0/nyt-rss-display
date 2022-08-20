@@ -7,6 +7,7 @@
 
 .App {
   background-color: white;
+  padding: 20px;
 }
 
 .panel {
@@ -22,15 +23,22 @@
   flex-direction: column;
   margin-left: 0;
   margin-right: auto;
+  max-width: 1000px;
+  /* border: 1px solid red; */
 }
 
 .text {
   flex: 0 1 auto;
+  text-align: left;
 }
 
 .wrapper {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 5rem;
+  padding: 2rem;
   text-align: center;
+}
+
+img {
+  flex-grow: 1;
 }
